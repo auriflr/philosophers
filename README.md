@@ -34,7 +34,7 @@ If this last argument is not included, the simulation stops when the philosopher
 - https://en.wikipedia.org/wiki/Dining_philosophers_problem; <br />
 - https://en.wikipedia.org/wiki/Concurrency_(computer_science);  <br />
 - https://medium.com/@ruinadd/philosophers-42-guide-the-dining-philosophers-problem-893a24bc0fe2; <br />
-In the resource right on top of this line, I found some video suggestions:
- * https://www.youtube.com/watch?v=LOfGJcVnvAk; <br />
- * https://www.youtube.com/watch?v=ldJ8WGZVXZk; <br />
- * https://www.youtube.com/watch?v=d9s_d28yJq0&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2; <br />
+    In the resource right on top of this line, I found some video suggestions: <br />
+       * https://www.youtube.com/watch?v=LOfGJcVnvAk; <br />
+       * https://www.youtube.com/watch?v=ldJ8WGZVXZk; <br />
+       * https://www.youtube.com/watch?v=d9s_d28yJq0&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2; <br />
