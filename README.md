@@ -1,4 +1,4 @@
-_This project (philosophers) has been created as part of the 42 curriculum by afloris._
+*This project (philosophers) has been created as part of the 42 curriculum by afloris.*
 
 # PHILOSOPHERS: a project about multithreading and concurrent algorithms
 
