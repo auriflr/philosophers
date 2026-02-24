@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: babyf <babyf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 16:24:30 by babyf             #+#    #+#             */
-/*   Updated: 2026/02/24 17:23:50 by babyf            ###   ########.fr       */
+/*   Created: 2026/02/24 17:28:04 by babyf             #+#    #+#             */
+/*   Updated: 2026/02/24 17:30:05 by babyf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_H
-#define PHILO_H
+#include "include/philo.h"
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/time.h>
-#include <pthread.h>
-
-/* structures */
-/* struct 1 for: */
-typedef struct	s_philo
+void	ft_erromsg(const char *msg)
 {
-	t_philo		philo;
-	t_philo		*next;
-}				t_philo;
+	printf("Error:\n %s\n", msg);
+}
 
-/* parsing */
+t_philo	*init_philo(void)
+{
+	t_philo	*philo;
 
-/* eat */
-
-/* think */
-
-/* go to sleep */
-
-
-
-#endif
+	philo = (t_philo *)malloc(sizeof(t_philo *));
+	if (!philo)
+		return (NULL);
+	return (philo);
+}
