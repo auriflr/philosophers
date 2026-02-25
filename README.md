@@ -12,7 +12,7 @@ While they are eating, they are not thinking nor sleeping, while thinking, they 
 while sleeping, they are not eating nor thinking.*
 
 Note for self: it's like they're sitting in a circle, philo1 sits next to philoN. <br />
-Note for self: pthread_exit is NOT allowed. (perhaps it's not needed) <br />
+Note for self: research mutex better <br />
 
 ### arguments <br />
 Args will be:<br />

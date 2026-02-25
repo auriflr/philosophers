@@ -6,7 +6,7 @@
 /*   By: afloris <afloris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 17:22:54 by afloris           #+#    #+#             */
-/*   Updated: 2026/02/25 18:42:53 by afloris          ###   ########.fr       */
+/*   Updated: 2026/02/25 19:14:30 by afloris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,25 +46,22 @@ int	ft_isnum(char *str)
 
 int	atoi(char *str)
 {
-	int	result;
+	unsigned long	num;
+	int				sign;
+	int				i;
 	
-	result = 0;
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '-')
-		return (ft_errormsg("Error:\n input must be positive num.\n"), 1);
-	else if (*str == '+')
-		str++;
-	while (*str)
+	i = 0;
+	sign = 1;
+	num = 0;
+	while (isspace(str[i]))
+		i++;
+	/* might need to change this to handle negative numbers */
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (!ft_isdigit(*str))
-			return (ft_errormsg("Error:\n input must be a num.\n"), 1);
-		result = (result * 10) + (*str - '0');
-		str++;
+		num = num * 10 + (str[i] - '0');
+		i++;
 	}
-	if (*str > 2147483647) 
-		return (ft_errormsg("Error:\n input must be under INT_MAX.\n"), 1);
-	if (result == 0)
-		return (ft_errormsg("Error:\n input must > 0.\n"), 1);
-	return (result);
+	return (sign * num);
 }
