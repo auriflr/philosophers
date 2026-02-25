@@ -25,6 +25,14 @@ There is a last, optional argument:<br />
 av[5] = **number_of_times_each_philosopher_must_eat** -> if all philosophers have eaten at least as much as n, the simulation stops; 
 If this last argument is not included, the simulation stops when the philosopher dies; <br />
 
+## My process
+What I struggled with the most, usually, is starting. For this project, I started out by doing some research on multithreading, threads,
+processes, the pthread library and its variables, the dining philosophers problem and such. I linked the resources down below. <br />
+### utils.c
+When it came to actually starting the project, I made two basic structs and created a utils.c, where I stored functions I would use 
+to handle parsing: ft_isdigit, ft_isspace, ft_atoi, ft_isnum and ft_errormsg.
+### parsing.c 
+
 ## Instructions
 
 
