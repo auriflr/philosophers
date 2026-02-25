@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afloris <afloris@student.42.fr>            +#+  +:+       +#+        */
+/*   By: babyf <babyf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 17:22:54 by afloris           #+#    #+#             */
-/*   Updated: 2026/02/25 17:36:32 by afloris          ###   ########.fr       */
+/*   Updated: 2026/02/25 17:51:06 by babyf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_isdigit(char c)
 
 int	ft_isspace(char c)
 {
-	if (c == ' ' || c == '\t' || c == '\v' || c == '\n'
+	if (c == ' ' || c == '\t' || c == '\v' || c == '\n' ||
 		c == '\r' || c == '\f')	
 		return (1);
 }
@@ -43,7 +43,7 @@ int	atoi(char *str)
 		result = (result * 10) + (*str - '0');
 		str++;
 	}
-	if (*str > INT_MAX)
+	if (*str > 2147483647) 
 		return (ft_errormsg("Error:\n input must be under INT_MAX.\n"), 1);
 	if (result == 0)
 		return (ft_errormsg("Error:\n input must > 0.\n"), 1);
