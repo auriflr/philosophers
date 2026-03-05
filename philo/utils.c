@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afloris <afloris@student.42.fr>            +#+  +:+       +#+        */
+/*   By: babyf <babyf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 17:22:54 by afloris           #+#    #+#             */
-/*   Updated: 2026/02/25 19:14:30 by afloris          ###   ########.fr       */
+/*   Updated: 2026/03/05 11:25:31 by babyf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,25 @@ int	ft_isnum(char *str)
 
 int	atoi(char *str)
 {
-	unsigned long	num;
-	int				sign;
-	int				i;
+	long	num;
+	int		sign;
 	
-	i = 0;
 	sign = 1;
 	num = 0;
-	while (isspace(str[i]))
-		i++;
+	while (isspace(*str))
+		str++;
 	/* might need to change this to handle negative numbers */
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	if (*str == '+' || *str == '-')
 	{
-		num = num * 10 + (str[i] - '0');
-		i++;
+		if (*str == '-')
+			sign = -1;
+		str++;
 	}
-	return (sign * num);
+	while (*str >= '0' && *str <= '9')
+	{
+		num = num * 10 + (*str++ - '0');
+		if ((sign == 1 && num > INT_MAX) || (sign == -1 && - num  < INT_MIN))
+			return (0);
+	}
+	return ((int *) num * sign);
 }
