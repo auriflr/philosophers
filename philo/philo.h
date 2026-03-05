@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afloris <afloris@student.42.fr>            +#+  +:+       +#+        */
+/*   By: babyf <babyf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 16:24:30 by babyf             #+#    #+#             */
-/*   Updated: 2026/03/05 15:07:59 by afloris          ###   ########.fr       */
+/*   Updated: 2026/03/05 16:11:04 by babyf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,17 @@ typedef struct	s_data
 	int             meals_to_eat; /* av[5] */
 	struct s_philo  *philos;
 	pthread_mutex_t	*forks;
+	pthread_mutex_t	*death;
 }				t_data;
 
 typedef struct	s_philo
 {
+	int				id;
 	int             meals_eaten;
 	long            last_meal;    
 	t_data          *data;
 	pthread_t       thread;
+	pthread_mutex_t *meals;
 	pthread_mutex_t *r_fork;
 	pthread_mutex_t *l_fork;
 }				t_philo;

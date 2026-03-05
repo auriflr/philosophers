@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afloris <afloris@student.42.fr>            +#+  +:+       +#+        */
+/*   By: babyf <babyf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:55:43 by babyf             #+#    #+#             */
-/*   Updated: 2026/03/05 15:07:30 by afloris          ###   ########.fr       */
+/*   Updated: 2026/03/05 16:12:44 by babyf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+/* gets time */
+long	get_time(void)
+{
+	struct timeval	tv;
+
+	gettimeofday(&tv, NULL);
+	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
+}
 
 /* initialize struct */
 static int	init_data(t_data *data)
@@ -23,7 +32,13 @@ static int	init_data(t_data *data)
 		return (ft_errormsg("Error:\n Init philos failed.\n"), 1);
 	while (i < data->philos)
 	{
-		/* initializes elements of philo*/
+		data->philos[i].data = i + 1;
+		data->philos[i].meals_eaten = 0;
+		data->philos[i].last_meal = 0;
+		data->philos[i].data = data;
+		data->philos[i].l_fork = &data->forks[i];
+		data->philos[i].r_fork = &data->forks[(i + 1) % data->n_philo];
+		pthread_mutex_init(&data->philos[i].meals, NULL);
 		i++;
 	}
 	return (0);
@@ -46,15 +61,6 @@ static int	init_forks(t_data *data)
 	}
 	/* REMINDER: this might need more */
 	return (0);
-}
-
-/* gets time */
-long	get_time(void)
-{
-	struct timeval	tv;
-
-	gettimeofday(&tv, NULL);
-	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
 /* final function to initialize everything at once */
