@@ -46,3 +46,4 @@ to handle parsing: ft_isdigit, ft_isspace, ft_atoi, ft_isnum and ft_errormsg.
        * https://www.youtube.com/watch?v=LOfGJcVnvAk; <br />
        * https://www.youtube.com/watch?v=ldJ8WGZVXZk; <br />
        * https://www.youtube.com/watch?v=d9s_d28yJq0&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2; <br />
+- https://www.codequoi.com/en/threads-mutexes-and-concurrent-programming-in-c/#using-posix-threads; <br />
