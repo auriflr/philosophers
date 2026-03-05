@@ -6,7 +6,7 @@
 /*   By: babyf <babyf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 17:22:54 by afloris           #+#    #+#             */
-/*   Updated: 2026/03/05 11:25:31 by babyf            ###   ########.fr       */
+/*   Updated: 2026/03/05 11:42:48 by babyf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	atoi(char *str)
 	num = 0;
 	while (isspace(*str))
 		str++;
-	/* might need to change this to handle negative numbers */
 	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
@@ -66,5 +65,5 @@ int	atoi(char *str)
 		if ((sign == 1 && num > INT_MAX) || (sign == -1 && - num  < INT_MIN))
 			return (0);
 	}
-	return ((int *) num * sign);
+	return ((int *)(num * sign));
 }
