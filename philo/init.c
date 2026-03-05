@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: babyf <babyf@student.42.fr>                +#+  +:+       +#+        */
+/*   By: afloris <afloris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:55:43 by babyf             #+#    #+#             */
-/*   Updated: 2026/03/05 16:12:44 by babyf            ###   ########.fr       */
+/*   Updated: 2026/03/05 16:31:22 by afloris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ static int	init_data(t_data *data)
 	return (0);
 }
 
-/* initializes mutex */
+/* initializes mutex 
+this might need double checking in case of printing errors
+a fix could be a print mutex */
 static int	init_forks(t_data *data)
 {
 	int	i;
@@ -59,8 +61,27 @@ static int	init_forks(t_data *data)
 			return (1);
 		i++;
 	}
-	/* REMINDER: this might need more */
+	if (pthread_mutex_init(data->death, NULL) != 0)
+		return (1);
 	return (0);
 }
 
 /* final function to initialize everything at once */
+int	init_all(t_data *data, int ac, char **av)
+{
+	memset(data, 0, sizeof(t_data));
+	data->n_philo = av[1];
+	data->time_to_die = av[2];
+	data->time_to_eat = av[3];
+	data->time_to_sleep = av[4];
+	if (ac == 6)
+		data->meals_to_eat = av[5];
+	else
+		data->meals_to_eat = 0; /* -1 */
+	data->dead = 0;
+	data->ate = 0;
+	if (data->n_philo <= 0 || data->time_to_die <= 0
+		|| data->time_to_eat <= 0 || data->time_to_sleep <= 0
+		|| (ac == 6 && data->meals_to_eat <= 0))
+		return (1);
+}
