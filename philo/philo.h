@@ -6,7 +6,7 @@
 /*   By: babyf <babyf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 16:24:30 by babyf             #+#    #+#             */
-/*   Updated: 2026/03/05 11:24:28 by babyf            ###   ########.fr       */
+/*   Updated: 2026/03/05 13:59:19 by babyf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ typedef struct	s_data
 	int             time_to_eat; /* av[3] */
 	int             time_to_sleep; /* av[4] */
 	int             meals_to_eat; /* av[5] */
-	int             dead;
-	long			time;
 	struct s_philo  *philos;
 }				t_data;
 
@@ -44,15 +42,15 @@ typedef struct	s_philo
 	pthread_mutex_t *l_fork;
 }				t_philo;
 
-/* helper functions */
+/* helper functions / parsing utils */
 void	ft_erromsg(const char *msg);
 int		ft_isdigit(char c);
 int		ft_isspace(char c);
 int		ft_isnum(char *str);
 int		atoi(char *str);
 
-/* parsing */
-
+/* initialize */
+long	get_time(void);
 
 
 
