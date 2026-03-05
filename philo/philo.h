@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: babyf <babyf@student.42.fr>                +#+  +:+       +#+        */
+/*   By: afloris <afloris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 16:24:30 by babyf             #+#    #+#             */
-/*   Updated: 2026/03/05 13:59:19 by babyf            ###   ########.fr       */
+/*   Updated: 2026/03/05 15:07:59 by afloris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct	s_data
 	int             time_to_sleep; /* av[4] */
 	int             meals_to_eat; /* av[5] */
 	struct s_philo  *philos;
+	pthread_mutex_t	*forks;
 }				t_data;
 
 typedef struct	s_philo
@@ -49,7 +50,8 @@ int		ft_isspace(char c);
 int		ft_isnum(char *str);
 int		atoi(char *str);
 
-/* initialize */
+/* initialize:
+most of the functions for this part are static functions */
 long	get_time(void);
 
 
