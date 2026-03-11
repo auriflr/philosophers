@@ -50,3 +50,4 @@ intend to make a final function that initializes everything at once, to save spa
        * https://www.youtube.com/watch?v=ldJ8WGZVXZk; <br />
        * https://www.youtube.com/watch?v=d9s_d28yJq0&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2; <br />
 - https://www.codequoi.com/en/threads-mutexes-and-concurrent-programming-in-c/#using-posix-threads; <br />
+- https://youtu.be/1tZhmTnk-vc?si=jBR0eBXNQHN9d017; <be />
