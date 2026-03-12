@@ -6,7 +6,7 @@
 /*   By: afloris <afloris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:55:43 by babyf             #+#    #+#             */
-/*   Updated: 2026/03/05 16:31:22 by afloris          ###   ########.fr       */
+/*   Updated: 2026/03/12 17:56:01 by afloris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ static int	init_data(t_data *data)
 	return (0);
 }
 
-/* initializes mutex 
+/* initializes mutexes 
 this might need double checking in case of printing errors
 a fix could be a print mutex */
-static int	init_forks(t_data *data)
+static int	init_mutex(t_data *data)
 {
 	int	i;
 
@@ -62,6 +62,8 @@ static int	init_forks(t_data *data)
 		i++;
 	}
 	if (pthread_mutex_init(data->death, NULL) != 0)
+		return (1);
+	if (pthread_mutex_init(data->print, NULL) != 0)
 		return (1);
 	return (0);
 }
@@ -84,4 +86,10 @@ int	init_all(t_data *data, int ac, char **av)
 		|| data->time_to_eat <= 0 || data->time_to_sleep <= 0
 		|| (ac == 6 && data->meals_to_eat <= 0))
 		return (1);
+	data->start = get_time();
+	if (init_data(data) != 0)
+		return (1);
+	if (init_mutex(data) != 0)
+		return (1);
+	return (0);
 }
