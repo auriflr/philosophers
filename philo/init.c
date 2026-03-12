@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afloris <afloris@student.42.fr>            +#+  +:+       +#+        */
+/*   By: babyf <babyf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 11:55:43 by babyf             #+#    #+#             */
-/*   Updated: 2026/03/12 17:56:01 by afloris          ###   ########.fr       */
+/*   Updated: 2026/03/12 19:07:48 by babyf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@ static int	init_data(t_data *data)
 	int	i;
 
 	i = 0;
-	data->philos = (t_data *)malloc(sizeof(t_philo) * data->n_philo);
-	if (!data->philos)
-		return (ft_errormsg("Error:\n Init philos failed.\n"), 1);
-	while (i < data->philos)
+	data->philo = (t_data *)malloc(sizeof(t_philo) * data->n_philo);
+	if (!data->philo)
+		return (ft_errormsg("Error:\n Init philo failed.\n"), 1);
+	while (i < data->philo)
 	{
-		data->philos[i].data = i + 1;
-		data->philos[i].meals_eaten = 0;
-		data->philos[i].last_meal = 0;
-		data->philos[i].data = data;
-		data->philos[i].l_fork = &data->forks[i];
-		data->philos[i].r_fork = &data->forks[(i + 1) % data->n_philo];
-		pthread_mutex_init(&data->philos[i].meals, NULL);
+		data->philo[i].data = i + 1;
+		data->philo[i].meals_eaten = 0;
+		data->philo[i].last_meal = 0;
+		data->philo[i].data = data;
+		data->philo[i].l_fork = &data->forks[i];
+		data->philo[i].r_fork = &data->forks[(i + 1) % data->n_philo];
+		pthread_mutex_init(&data->philo[i].meals, NULL);
 		i++;
 	}
 	return (0);

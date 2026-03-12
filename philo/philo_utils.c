@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   philo_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afloris <afloris@student.42.fr>            +#+  +:+       +#+        */
+/*   By: babyf <babyf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 18:29:33 by afloris           #+#    #+#             */
-/*   Updated: 2026/03/12 18:38:50 by afloris          ###   ########.fr       */
+/*   Updated: 2026/03/12 19:06:23 by babyf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+long int	time_passed(long int time)
+{
+	long int	now;
+	long int	time_passed;
+
+	now = gettime();
+	time_passed = now - time;
+	return (time_passed);
+}
 
 void	print_action(t_philo *philo, const char *action)
 {

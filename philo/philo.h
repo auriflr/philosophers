@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afloris <afloris@student.42.fr>            +#+  +:+       +#+        */
+/*   By: babyf <babyf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 16:24:30 by babyf             #+#    #+#             */
-/*   Updated: 2026/03/12 18:38:24 by afloris          ###   ########.fr       */
+/*   Updated: 2026/03/12 19:07:44 by babyf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ long	get_time(void);
 int		init_all(t_data *data, int ac, char **av);
 
 /* unordered */
-void	print_action(t_philo *philos, const char *action);
+void	print_action(t_philo *philo, const char *action);
 
 #endif
