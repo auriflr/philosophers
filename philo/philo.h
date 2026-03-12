@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: babyf <babyf@student.42.fr>                +#+  +:+       +#+        */
+/*   By: afloris <afloris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 16:24:30 by babyf             #+#    #+#             */
-/*   Updated: 2026/03/12 19:07:44 by babyf            ###   ########.fr       */
+/*   Updated: 2026/03/12 20:47:17 by afloris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,16 @@ typedef struct	s_philo
 	pthread_mutex_t *l_fork;
 }				t_philo;
 
-/* mini lib of helper functions  */
+/* time functions */
+long int	time_passed(long int time);
+long		get_time(void);
+
+/* basic helper functions  */
 void	ft_erromsg(const char *msg);
-int		ft_isdigit(char c);
-int		ft_isspace(char c);
-int		ft_isnum(char *str);
-int		atoi(char *str);
-
-/* initialize:
-most of the functions for this part are static functions */
-long	get_time(void);
-int		init_all(t_data *data, int ac, char **av);
-
-/* unordered */
+int		is_valid(char *str);
+int		ft_atoi(char *str);
 void	print_action(t_philo *philo, const char *action);
+
+
 
 #endif

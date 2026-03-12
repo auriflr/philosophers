@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minilib.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afloris <afloris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 17:22:54 by afloris           #+#    #+#             */
-/*   Updated: 2026/03/12 18:32:47 by afloris          ###   ########.fr       */
+/*   Updated: 2026/03/12 20:47:13 by afloris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,41 +17,29 @@ void	ft_erromsg(const char *msg)
 	printf("Error:\n %s\n", msg);
 }
 
-int	ft_isdigit(char c)
+int	is_valid(char *str)
 {
-	return (c >= '0' && c <= '9');
-}
+	int	i;
 
-int	ft_isspace(char c)
-{
-	if (c == ' ' || c == '\t' || c == '\v' || c == '\n' ||
-		c == '\r' || c == '\f')	
-		return (1);
-}
-
-int	ft_isnum(char *str)
-{
-	if (!str || *str == '\0')
-		return (0);
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if (!ft_isdigit(str))
+		if (str[i] < '0' || str[i] > '9')
 			return (1);
-		str++;
+		i++;
 	}
 	return (0);
 }
 
-int	atoi(char *str)
+int	ft_atoi(char *str)
 {
 	long	num;
 	int		sign;
 	
 	sign = 1;
 	num = 0;
-	while (isspace(*str))
+	while (*str == ' ' || *str == '\t' || *str == '\v' || *str == '\n' ||
+		*str == '\r' || *str == '\f')	
 		str++;
 	if (*str == '+' || *str == '-')
 	{
@@ -66,4 +54,20 @@ int	atoi(char *str)
 			return (0);
 	}
 	return ((int *)(num * sign));
+}
+
+/*might get moved */
+void	print_action(t_philo *philo, const char *action)
+{
+	long long	time; /* timestamp */
+
+	pthread_mutex_lock(&philo->data->print);
+	pthread_mutex_lock(&philo->data->death);
+	if (!philo->data->dead && !philo->data->ate)
+	{
+		time = gettime() - philo->data->start;
+		printf("%ld philo %d %s\n", time, philo->id, action);
+	}
+	pthread_mutex_unlock(&philo->data->print);
+	pthread_mutex_unlock(&philo->data->death);
 }
