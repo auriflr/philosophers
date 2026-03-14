@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afloris <afloris@student.42.fr>            +#+  +:+       +#+        */
+/*   By: babyf <babyf@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 16:24:30 by babyf             #+#    #+#             */
-/*   Updated: 2026/03/12 20:47:17 by afloris          ###   ########.fr       */
+/*   Updated: 2026/03/14 12:48:59 by babyf            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,24 @@ typedef struct	s_philo
 	pthread_mutex_t *l_fork;
 }				t_philo;
 
-/* time functions */
-long int	time_passed(long int time);
+/* mini lib of helper functions  */
+void		ft_erromsg(const char *msg);
+int			is_valid(char *str);
+int			ft_atoi(char *str);
+void		print_action(t_philo *philo, const char *action);
+
+/* functions to get the time */
 long		get_time(void);
+long int	time_passed(long int time);
 
-/* basic helper functions  */
-void	ft_erromsg(const char *msg);
-int		is_valid(char *str);
-int		ft_atoi(char *str);
-void	print_action(t_philo *philo, const char *action);
+/* initialize: most of the functions for this part are static functions */
+int			init_all(t_data *data, int ac, char **av);
 
-
+/* philo utils */
+void		get_ordered_forks(t_philo *philo, 
+			pthread_mutex_t **first, pthread_mutex_t **second);
+void		take_forks(t_philo *philo, 
+			pthread_mutex_t *first, pthread_mutex_t *second);
+void		print_action(t_philo *philo, const char *action);
 
 #endif
